@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_1
+code name=mprove_9
+codelet name=mprove_9_sr_dx2

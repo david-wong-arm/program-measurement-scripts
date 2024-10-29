@@ -1,0 +1,900 @@
+	.section .text
+.LNDBG_TX:
+# mark_description "Intel(R) Fortran Intel(R) 64 Compiler XE for applications running on Intel(R) 64, Version 15.0.0.090 Build 2";
+# mark_description "0140723";
+# mark_description "-o codelet.s -S -g -O3 -xcore-avx2 -align array64byte";
+	.file "codelet.f90"
+	.text
+..TXTST0:
+L__routine_start_codelet__0:
+# -- Begin  codelet_
+	.text
+# mark_begin;
+       .align    16,0x90
+	.globl codelet_
+codelet_:
+# parameter 1(n): %rdi
+# parameter 2(a): %rsi
+# parameter 3(j): %rdx
+..B1.1:                         # Preds ..B1.0
+..___tag_value_codelet_.2:                                      #
+..LN0:
+  .file   1 "codelet.f90"
+   .loc    1  1  is_stmt 1
+        subq      $152, %rsp                                    #1.12
+..___tag_value_codelet_.4:                                      #
+..LN1:
+        movq      %rdx, %rax                                    #1.12
+..LN2:
+        movslq    (%rdi), %rdx                                  #1.12
+..LN3:
+        movq      %rsi, %r10                                    #1.12
+..LN4:
+        movq      %rdx, 48(%rsp)                                #1.12
+..LN5:
+   .loc    1  5  prologue_end  is_stmt 1
+        xorl      %esi, %esi                                    #5.3
+..LN6:
+   .loc    1  1  is_stmt 1
+        movq      %rdx, 56(%rsp)                                #1.12
+..LN7:
+        xorl      %r9d, %r9d                                    #
+..LN8:
+   .loc    1  5  is_stmt 1
+        movslq    (%rax), %rcx                                  #5.3
+..LN9:
+        testq     %rcx, %rcx                                    #5.3
+..LN10:
+        jle       ..B1.22       # Prob 2%                       #5.3
+..LN11:
+                                # LOE rdx rcx rbx rbp rsi r9 r10 r12 r13 r14 r15
+..B1.2:                         # Preds ..B1.1
+..LN12:
+   .loc    1  6  is_stmt 1
+        movq      %r10, %r8                                     #6.11
+..LN13:
+        lea       (,%rdx,4), %r11                               #6.11
+..LN14:
+        subq      %r11, %r8                                     #6.11
+..LN15:
+        lea       (,%rcx,4), %rax                               #6.11
+..LN16:
+        movq      %rdx, %rdi                                    #
+..LN17:
+        lea       (%rax,%rdx,4), %rax                           #6.5
+..LN18:
+   .loc    1  8  is_stmt 1
+        addq      %rax, %r8                                     #8.30
+..LN19:
+   .loc    1  7  is_stmt 1
+        movl      %ecx, %eax                                    #7.5
+..LN20:
+        andl      $-16, %eax                                    #7.5
+..LN21:
+        movslq    %eax, %rax                                    #7.5
+..LN22:
+        movq      %rax, (%rsp)                                  #7.5
+..LN23:
+   .loc    1  8  is_stmt 1
+        movq      %rdx, %rax                                    #8.30
+..LN24:
+        shlq      $6, %rdi                                      #
+..LN25:
+        shlq      $5, %rax                                      #8.30
+..LN26:
+        movq      %rdi, 72(%rsp)                                #
+..LN27:
+        movq      %r10, %rdi                                    #
+..LN28:
+   .loc    1  7  is_stmt 1
+        movl      %ecx, 136(%rsp)                               #7.5
+..LN29:
+   .loc    1  8  is_stmt 1
+        movq      %rax, 64(%rsp)                                #8.30
+..LN30:
+        xorl      %eax, %eax                                    #
+..LN31:
+        movq      %r11, 128(%rsp)                               #
+..LN32:
+        movq      %r12, 8(%rsp)                                 #
+..LN33:
+        movq      %r13, 16(%rsp)                                #
+..LN34:
+        movq      %r14, 24(%rsp)                                #
+..LN35:
+        movq      %r15, 32(%rsp)                                #
+..LN36:
+        movq      %rbx, 40(%rsp)                                #
+..___tag_value_codelet_.6:                                      #
+..LN37:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10
+..B1.3:                         # Preds ..B1.20 ..B1.2
+..LN38:
+   .loc    1  6  is_stmt 1
+        vmovss    -4(%r8,%r9,4), %xmm0                          #6.5
+..LN39:
+   .loc    1  7  is_stmt 1
+        cmpq      $16, %rcx                                     #7.5
+..LN40:
+        jl        ..B1.23       # Prob 10%                      #7.5
+..LN41:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 xmm0
+..B1.4:                         # Preds ..B1.3
+..LN42:
+        cmpq      $57, %rcx                                     #7.5
+..LN43:
+        jl        ..B1.25       # Prob 10%                      #7.5
+..LN44:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 xmm0
+..B1.5:                         # Preds ..B1.4
+..LN45:
+   .loc    1  6  is_stmt 1
+        lea       (%r10,%rax), %r14                             #6.11
+..LN46:
+   .loc    1  7  is_stmt 1
+        andq      $31, %r14                                     #7.5
+..LN47:
+        testl     %r14d, %r14d                                  #7.5
+..LN48:
+        je        ..B1.8        # Prob 50%                      #7.5
+..LN49:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 r14d xmm0
+..B1.6:                         # Preds ..B1.5
+..LN50:
+        testl     $3, %r14d                                     #7.5
+..LN51:
+        jne       ..B1.23       # Prob 10%                      #7.5
+..LN52:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 r14d xmm0
+..B1.7:                         # Preds ..B1.6
+..LN53:
+        negl      %r14d                                         #7.5
+..LN54:
+        addl      $32, %r14d                                    #7.5
+..LN55:
+        shrl      $2, %r14d                                     #7.5
+..LN56:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 r14d xmm0
+..B1.8:                         # Preds ..B1.7 ..B1.5
+..LN57:
+        movl      %r14d, %r11d                                  #7.5
+..LN58:
+        lea       16(%r11), %rbx                                #7.5
+..LN59:
+        cmpq      %rbx, %rcx                                    #7.5
+..LN60:
+        jl        ..B1.23       # Prob 10%                      #7.5
+..LN61:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 r11 r14d xmm0
+..B1.9:                         # Preds ..B1.8
+..LN62:
+        negl      %r14d                                         #7.5
+..LN63:
+        xorl      %r12d, %r12d                                  #7.5
+..LN64:
+        movl      136(%rsp), %ebx                               #7.5
+..LN65:
+        addl      %ebx, %r14d                                   #7.5
+..LN66:
+        andl      $15, %r14d                                    #7.5
+..LN67:
+        movq      %r8, %r13                                     #
+..LN68:
+        negl      %r14d                                         #7.5
+..LN69:
+        addl      %ebx, %r14d                                   #7.5
+..LN70:
+   .loc    1  6  is_stmt 1
+        lea       (%r10,%rax), %rbx                             #6.11
+..LN71:
+   .loc    1  7  is_stmt 1
+        movslq    %r14d, %r14                                   #7.5
+..LN72:
+        testq     %r11, %r11                                    #7.5
+..LN73:
+        jbe       ..B1.13       # Prob 2%                       #7.5
+..LN74:
+                                # LOE rax rdx rcx rbx rbp rsi rdi r8 r9 r10 r11 r12 r13 r14 xmm0
+..B1.11:                        # Preds ..B1.9 ..B1.11
+..L11:          # optimization report
+                # PEELED LOOP FOR VECTORIZATION
+..LN75:
+   .loc    1  8  is_stmt 1
+        vmovss    (%rbx,%r12,4), %xmm1                          #8.19
+..LN76:
+   .loc    1  7  is_stmt 1
+        incq      %r12                                          #7.5
+..LN77:
+   .loc    1  8  is_stmt 1
+        vmulss    -4(%r13), %xmm1, %xmm2                        #8.7
+..LN78:
+   .loc    1  7  is_stmt 1
+        lea       (%r13,%rdx,4), %r13                           #7.5
+..LN79:
+   .loc    1  8  is_stmt 1
+        vsubss    %xmm2, %xmm0, %xmm0                           #8.7
+..LN80:
+   .loc    1  7  is_stmt 1
+        cmpq      %r11, %r12                                    #7.5
+..LN81:
+        jb        ..B1.11       # Prob 82%                      #7.5
+..LN82:
+                                # LOE rax rdx rcx rbx rbp rsi rdi r8 r9 r10 r11 r12 r13 r14 xmm0
+..B1.13:                        # Preds ..B1.11 ..B1.9 ..B1.25
+..LN83:
+        movq      128(%rsp), %r15                               #
+..LN84:
+        movq      %r15, %r12                                    #
+..LN85:
+   .loc    1  6  is_stmt 1
+        vxorps    %xmm1, %xmm1, %xmm1                           #6.5
+..LN86:
+        imulq     %r11, %r12                                    #
+..LN87:
+        vmovss    %xmm0, %xmm1, %xmm0                           #6.5
+..LN88:
+        lea       -4(%r8,%r12), %r12                            #
+..LN89:
+        movq      %r8, 80(%rsp)                                 #
+..LN90:
+        lea       (%r15,%r15,2), %r13                           #
+..LN91:
+        movq      %r9, 96(%rsp)                                 #
+..LN92:
+        lea       (%r15,%r15,4), %r15                           #
+..LN93:
+        movq      %r10, 120(%rsp)                               #
+..LN94:
+        movq      %rdi, 88(%rsp)                                #
+..LN95:
+        movq      %rsi, 104(%rsp)                               #
+..LN96:
+        movq      %rcx, 112(%rsp)                               #
+..LN97:
+        movq      64(%rsp), %r8                                 #
+..LN98:
+        movq      72(%rsp), %r9                                 #
+..LN99:
+        movq      128(%rsp), %r10                               #
+..LN100:
+        vinsertf128 $1, %xmm1, %ymm0, %ymm1                     #6.5
+..LN101:
+        vxorps    %ymm0, %ymm0, %ymm0                           #6.5
+..LN102:
+                                # LOE rax rdx rbx rbp r8 r9 r10 r11 r12 r13 r14 r15 ymm0 ymm1
+..B1.14:                        # Preds ..B1.14 ..B1.13
+..L12:          # optimization report
+                # LOOP WAS VECTORIZED
+                # VECTORIZATION HAS UNALIGNED MEMORY REFERENCES
+                # VECTORIZATION SPEEDUP COEFFECIENT 2.048828
+..LN103:
+   .loc    1  7  is_stmt 1
+..LN104:
+   .loc    1  8  is_stmt 1
+        movq      %rdx, %rcx                                    #8.30
+..LN105:
+        shlq      $4, %rcx                                      #8.30
+..LN106:
+        movq      %rdx, %rsi                                    #8.30
+..LN107:
+        shlq      $5, %rsi                                      #8.30
+..LN108:
+        lea       (%r12,%r8), %rdi                              #8.30
+..LN109:
+        subq      %r10, %rsi                                    #8.30
+..LN110:
+        vmovss    (%r12), %xmm2                                 #8.30
+..LN111:
+        vmovss    (%rdi), %xmm10                                #8.30
+..LN112:
+        vmovss    (%rcx,%r12), %xmm5                            #8.30
+..LN113:
+        vmovss    (%rcx,%rdi), %xmm13                           #8.30
+..LN114:
+        vinsertps $16, (%r12,%r10), %xmm2, %xmm3                #8.30
+..LN115:
+        vinsertps $16, (%rdi,%r10), %xmm10, %xmm11              #8.30
+..LN116:
+        vinsertps $80, (%r15,%r12), %xmm5, %xmm6                #8.30
+..LN117:
+        vinsertps $80, (%r15,%rdi), %xmm13, %xmm14              #8.30
+..LN118:
+        vinsertps $32, (%r12,%rdx,8), %xmm3, %xmm4              #8.30
+..LN119:
+        vinsertps $32, (%rdi,%rdx,8), %xmm11, %xmm12            #8.30
+..LN120:
+        vinsertps $96, (%r12,%r13,2), %xmm6, %xmm7              #8.30
+..LN121:
+        vinsertps $96, (%rdi,%r13,2), %xmm14, %xmm15            #8.30
+..LN122:
+        vinsertps $48, (%r13,%r12), %xmm4, %xmm8                #8.30
+..LN123:
+        vinsertps $48, (%r13,%rdi), %xmm12, %xmm10              #8.30
+..LN124:
+        vinsertps $112, (%rsi,%r12), %xmm7, %xmm9               #8.30
+..LN125:
+   .loc    1  7  is_stmt 1
+        addq      %r9, %r12                                     #7.5
+..LN126:
+   .loc    1  8  is_stmt 1
+        vinsertps $112, (%rsi,%rdi), %xmm15, %xmm11             #8.30
+..LN127:
+        vinsertf128 $1, %xmm9, %ymm8, %ymm2                     #8.30
+..LN128:
+        vinsertf128 $1, %xmm11, %ymm10, %ymm3                   #8.30
+..LN129:
+        vfnmadd231ps (%rbx,%r11,4), %ymm2, %ymm1                #8.7
+..LN130:
+        vfnmadd231ps 32(%rbx,%r11,4), %ymm3, %ymm0              #8.7
+..LN131:
+   .loc    1  7  is_stmt 1
+        addq      $16, %r11                                     #7.5
+..LN132:
+        cmpq      %r14, %r11                                    #7.5
+..LN133:
+        jb        ..B1.14       # Prob 82%                      #7.5
+..LN134:
+                                # LOE rax rdx rbx rbp r8 r9 r10 r11 r12 r13 r14 r15 ymm0 ymm1
+..B1.15:                        # Preds ..B1.14
+..LN135:
+   .loc    1  6  is_stmt 1
+        vaddps    %ymm0, %ymm1, %ymm0                           #6.5
+..LN136:
+        movq      80(%rsp), %r8                                 #
+..LN137:
+        movq      88(%rsp), %rdi                                #
+..LN138:
+        movq      96(%rsp), %r9                                 #
+..LN139:
+        movq      104(%rsp), %rsi                               #
+..LN140:
+        movq      112(%rsp), %rcx                               #
+..LN141:
+        movq      120(%rsp), %r10                               #
+..LN142:
+        vextractf128 $1, %ymm0, %xmm1                           #6.5
+..LN143:
+        vaddps    %xmm1, %xmm0, %xmm2                           #6.5
+..LN144:
+        vmovhlps  %xmm2, %xmm2, %xmm3                           #6.5
+..LN145:
+        vaddps    %xmm3, %xmm2, %xmm4                           #6.5
+..LN146:
+        vshufps   $245, %xmm4, %xmm4, %xmm5                     #6.5
+..LN147:
+        vaddss    %xmm5, %xmm4, %xmm0                           #6.5
+..LN148:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 r14 xmm0
+..B1.16:                        # Preds ..B1.15 ..B1.23
+..LN149:
+        movq      %rdx, %rbx                                    #
+..LN150:
+        imulq     %r14, %rbx                                    #
+..LN151:
+        lea       (%r8,%rbx,4), %rbx                            #
+..LN152:
+   .loc    1  7  is_stmt 1
+        cmpq      %rcx, %r14                                    #7.5
+..LN153:
+        jae       ..B1.20       # Prob 2%                       #7.5
+..LN154:
+                                # LOE rax rdx rcx rbx rbp rsi rdi r8 r9 r10 r14 xmm0
+..B1.18:                        # Preds ..B1.16 ..B1.18
+..L13:          # optimization report
+                # REMAINDER LOOP FOR VECTORIATION
+..LN155:
+   .loc    1  8  is_stmt 1
+        vmovss    (%rdi,%r14,4), %xmm1                          #8.19
+..LN156:
+   .loc    1  7  is_stmt 1
+        incq      %r14                                          #7.5
+..LN157:
+   .loc    1  8  is_stmt 1
+        vmulss    -4(%rbx), %xmm1, %xmm2                        #8.7
+..LN158:
+   .loc    1  7  is_stmt 1
+        lea       (%rbx,%rdx,4), %rbx                           #7.5
+..LN159:
+   .loc    1  8  is_stmt 1
+        vsubss    %xmm2, %xmm0, %xmm0                           #8.7
+..LN160:
+   .loc    1  7  is_stmt 1
+        cmpq      %rcx, %r14                                    #7.5
+..LN161:
+        jb        ..B1.18       # Prob 82%                      #7.5
+..LN162:
+                                # LOE rax rdx rcx rbx rbp rsi rdi r8 r9 r10 r14 xmm0
+..B1.20:                        # Preds ..B1.18 ..B1.16
+..LN163:
+   .loc    1  5  is_stmt 1
+        incq      %rsi                                          #5.3
+..LN164:
+        lea       (%rdi,%rdx,4), %rdi                           #5.3
+..LN165:
+   .loc    1  10  is_stmt 1
+        vmovss  -4(%r8,%r9,4), %xmm0                          #10.5
+..LN166:
+   .loc    1  5  is_stmt 1
+        addq      %rdx, %r9                                     #5.3
+..LN167:
+        lea       (%rax,%rdx,4), %rax                           #5.3
+..LN168:
+        cmpq      %rcx, %rsi                                    #5.3
+..LN169:
+        jb        ..B1.3        # Prob 82%                      #5.3
+..LN170:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10
+..B1.21:                        # Preds ..B1.20
+..LN171:
+        movq      8(%rsp), %r12                                 #
+..___tag_value_codelet_.14:                                     #
+..LN172:
+        movq      16(%rsp), %r13                                #
+..___tag_value_codelet_.15:                                     #
+..LN173:
+        movq      24(%rsp), %r14                                #
+..___tag_value_codelet_.16:                                     #
+..LN174:
+        movq      32(%rsp), %r15                                #
+..___tag_value_codelet_.17:                                     #
+..LN175:
+        movq      40(%rsp), %rbx                                #
+..___tag_value_codelet_.18:                                     #
+..LN176:
+                                # LOE rbx rbp r12 r13 r14 r15
+..B1.22:                        # Preds ..B1.21 ..B1.1
+..LN177:
+   .loc    1  13  is_stmt 1
+        vzeroupper                                              #13.1
+..LN178:
+   .loc    1  13  epilogue_begin  is_stmt 1
+        addq      $152, %rsp                                    #13.1
+..___tag_value_codelet_.20:                                     #
+..LN179:
+        ret                                                     #13.1
+..___tag_value_codelet_.21:                                     #
+..LN180:
+                                # LOE
+..B1.23:                        # Preds ..B1.3 ..B1.6 ..B1.8    # Infreq
+..LN181:
+   .loc    1  7  is_stmt 1
+        xorl      %r14d, %r14d                                  #7.5
+..LN182:
+        jmp       ..B1.16       # Prob 100%                     #7.5
+..LN183:
+                                # LOE rax rdx rcx rbp rsi rdi r8 r9 r10 r14 xmm0
+..B1.25:                        # Preds ..B1.4                  # Infreq
+..LN184:
+        movq      (%rsp), %r14                                  #7.5
+..LN185:
+   .loc    1  6  is_stmt 1
+        movq      %rdi, %rbx                                    #6.11
+..LN186:
+   .loc    1  7  is_stmt 1
+        xorl      %r11d, %r11d                                  #7.5
+..LN187:
+        jmp       ..B1.13       # Prob 100%                     #7.5
+        .align    16,0x90
+..___tag_value_codelet_.29:                                     #
+..LN188:
+                                # LOE rax rdx rcx rbx rbp rsi rdi r8 r9 r10 r11 r14 xmm0
+..LN189:
+# mark_end;
+	.type	codelet_,@function
+	.size	codelet_,.-codelet_
+..LNcodelet_.190:
+.LNcodelet_:
+	.data
+# -- End  codelet_
+	.data
+	.section .debug_opt_report, "a"
+..L30:
+	.ascii ".itt_notify_tab\0"
+	.word	258
+	.word	48
+	.long	4
+	.long	..L31 - ..L30
+	.long	48
+	.long	..L32 - ..L30
+	.long	44
+	.long	0x00000008,0x00000000
+	.long	0
+	.long	0
+	.long	0
+	.long	0
+	.quad	..L11
+	.long	28
+	.long	4
+	.quad	..L12
+	.long	28
+	.long	16
+	.quad	..L13
+	.long	28
+	.long	32
+..L31:
+	.long	1769238639
+	.long	1635412333
+	.long	1852795252
+	.long	1885696607
+	.long	1601466991
+	.long	1936876918
+	.long	7237481
+	.long	1769238639
+	.long	1635412333
+	.long	1852795252
+	.long	1885696607
+	.long	7631471
+..L32:
+	.long	41947139
+	.long	-2139090933
+	.long	-2139062144
+	.long	75530368
+	.long	-2139090929
+	.long	-2139062144
+	.long	-2105507712
+	.long	142723202
+	.long	-2139090933
+	.long	-2139062144
+	.long	142639232
+	.section .note.GNU-stack, ""
+// -- Begin DWARF2 SEGMENT .debug_info
+	.section .debug_info
+.debug_info_seg:
+	.align 1
+	.4byte 0x000000a8
+	.2byte 0x0003
+	.4byte .debug_abbrev_seg
+	.byte 0x08
+//	DW_TAG_compile_unit:
+	.byte 0x01
+//	DW_AT_comp_dir:
+	.4byte .debug_str
+//	DW_AT_language:
+	.byte 0x0e
+//	DW_AT_name:
+	.4byte .debug_str+0x5a
+//	DW_AT_producer:
+	.4byte .debug_str+0x66
+//	DW_AT_use_UTF8:
+	.byte 0x01
+//	DW_AT_low_pc:
+	.8byte ..LN0
+//	DW_AT_high_pc:
+	.8byte ..LNcodelet_.190
+//	DW_AT_stmt_list:
+	.4byte .debug_line_seg
+//	DW_TAG_subprogram:
+	.byte 0x02
+//	DW_AT_decl_line:
+	.byte 0x01
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_name:
+	.4byte .debug_str+0xdb
+//	DW_AT_low_pc:
+	.8byte L__routine_start_codelet__0
+//	DW_AT_high_pc:
+	.8byte ..LNcodelet_.190
+//	DW_AT_external:
+	.byte 0x01
+//	DW_TAG_formal_parameter:
+	.byte 0x03
+//	DW_AT_decl_line:
+	.byte 0x01
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_type:
+	.4byte 0x00000088
+//	DW_AT_name:
+	.2byte 0x006e
+//	DW_AT_location:
+	.2byte 0x7502
+	.byte 0x00
+//	DW_TAG_formal_parameter:
+	.byte 0x03
+//	DW_AT_decl_line:
+	.byte 0x01
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_type:
+	.4byte 0x0000008f
+//	DW_AT_name:
+	.2byte 0x0061
+//	DW_AT_location:
+	.2byte 0x7402
+	.byte 0x00
+//	DW_TAG_formal_parameter:
+	.byte 0x03
+//	DW_AT_decl_line:
+	.byte 0x01
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_type:
+	.4byte 0x00000088
+//	DW_AT_name:
+	.2byte 0x006a
+//	DW_AT_location:
+	.2byte 0x7102
+	.byte 0x00
+//	DW_TAG_variable:
+	.byte 0x04
+//	DW_AT_decl_line:
+	.byte 0x03
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_name:
+	.2byte 0x006b
+//	DW_AT_type:
+	.4byte 0x00000088
+//	DW_TAG_variable:
+	.byte 0x04
+//	DW_AT_decl_line:
+	.byte 0x03
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_name:
+	.2byte 0x0069
+//	DW_AT_type:
+	.4byte 0x00000088
+//	DW_TAG_variable:
+	.byte 0x04
+//	DW_AT_decl_line:
+	.byte 0x02
+//	DW_AT_decl_file:
+	.byte 0x01
+//	DW_AT_name:
+	.4byte 0x006d7573
+//	DW_AT_type:
+	.4byte 0x000000a4
+	.byte 0x00
+//	DW_TAG_base_type:
+	.byte 0x05
+//	DW_AT_byte_size:
+	.byte 0x04
+//	DW_AT_encoding:
+	.byte 0x05
+//	DW_AT_name:
+	.4byte .debug_str+0xe3
+//	DW_TAG_array_type:
+	.byte 0x06
+//	DW_AT_ordering:
+	.byte 0x01
+//	DW_AT_type:
+	.4byte 0x000000a4
+//	DW_TAG_subrange_type:
+	.byte 0x07
+//	DW_AT_lower_bound:
+	.byte 0x01
+//	DW_AT_upper_bound:
+	.4byte 0x7ee87604
+	.byte 0x06
+//	DW_TAG_subrange_type:
+	.byte 0x07
+//	DW_AT_lower_bound:
+	.byte 0x01
+//	DW_AT_upper_bound:
+	.4byte 0x7ee87604
+	.byte 0x06
+	.byte 0x00
+//	DW_TAG_base_type:
+	.byte 0x05
+//	DW_AT_byte_size:
+	.byte 0x04
+//	DW_AT_encoding:
+	.byte 0x04
+//	DW_AT_name:
+	.4byte .debug_str+0xee
+	.byte 0x00
+// -- Begin DWARF2 SEGMENT .debug_line
+	.section .debug_line
+.debug_line_seg:
+	.align 1
+// -- Begin DWARF2 SEGMENT .debug_abbrev
+	.section .debug_abbrev
+.debug_abbrev_seg:
+	.align 1
+	.byte 0x01
+	.byte 0x11
+	.byte 0x01
+	.byte 0x1b
+	.byte 0x0e
+	.byte 0x13
+	.byte 0x0b
+	.byte 0x03
+	.byte 0x0e
+	.byte 0x25
+	.byte 0x0e
+	.byte 0x53
+	.byte 0x0c
+	.byte 0x11
+	.byte 0x01
+	.byte 0x12
+	.byte 0x01
+	.byte 0x10
+	.byte 0x06
+	.2byte 0x0000
+	.byte 0x02
+	.byte 0x2e
+	.byte 0x01
+	.byte 0x3b
+	.byte 0x0b
+	.byte 0x3a
+	.byte 0x0b
+	.byte 0x03
+	.byte 0x0e
+	.byte 0x11
+	.byte 0x01
+	.byte 0x12
+	.byte 0x01
+	.byte 0x3f
+	.byte 0x0c
+	.2byte 0x0000
+	.byte 0x03
+	.byte 0x05
+	.byte 0x00
+	.byte 0x3b
+	.byte 0x0b
+	.byte 0x3a
+	.byte 0x0b
+	.byte 0x49
+	.byte 0x13
+	.byte 0x03
+	.byte 0x08
+	.byte 0x02
+	.byte 0x0a
+	.2byte 0x0000
+	.byte 0x04
+	.byte 0x34
+	.byte 0x00
+	.byte 0x3b
+	.byte 0x0b
+	.byte 0x3a
+	.byte 0x0b
+	.byte 0x03
+	.byte 0x08
+	.byte 0x49
+	.byte 0x13
+	.2byte 0x0000
+	.byte 0x05
+	.byte 0x24
+	.byte 0x00
+	.byte 0x0b
+	.byte 0x0b
+	.byte 0x3e
+	.byte 0x0b
+	.byte 0x03
+	.byte 0x0e
+	.2byte 0x0000
+	.byte 0x06
+	.byte 0x01
+	.byte 0x01
+	.byte 0x09
+	.byte 0x0b
+	.byte 0x49
+	.byte 0x13
+	.2byte 0x0000
+	.byte 0x07
+	.byte 0x21
+	.byte 0x00
+	.byte 0x22
+	.byte 0x0d
+	.byte 0x2f
+	.byte 0x0a
+	.2byte 0x0000
+	.byte 0x00
+// -- Begin DWARF2 SEGMENT .debug_frame
+	.section .debug_frame
+.debug_frame_seg:
+	.align 1
+	.4byte 0x00000014
+	.8byte 0x78010003ffffffff
+	.8byte 0x0000019008070c10
+	.4byte 0x00000000
+	.4byte 0x00000064
+	.4byte .debug_frame_seg
+	.8byte ..___tag_value_codelet_.2
+	.8byte ..___tag_value_codelet_.29-..___tag_value_codelet_.2
+	.byte 0x04
+	.4byte ..___tag_value_codelet_.4-..___tag_value_codelet_.2
+	.4byte 0x0401a00e
+	.4byte ..___tag_value_codelet_.6-..___tag_value_codelet_.4
+	.8byte 0x118e128d138c0f83
+	.2byte 0x108f
+	.byte 0x04
+	.4byte ..___tag_value_codelet_.14-..___tag_value_codelet_.6
+	.2byte 0x04cc
+	.4byte ..___tag_value_codelet_.15-..___tag_value_codelet_.14
+	.2byte 0x04cd
+	.4byte ..___tag_value_codelet_.16-..___tag_value_codelet_.15
+	.2byte 0x04ce
+	.4byte ..___tag_value_codelet_.17-..___tag_value_codelet_.16
+	.2byte 0x04cf
+	.4byte ..___tag_value_codelet_.18-..___tag_value_codelet_.17
+	.2byte 0x04c3
+	.4byte ..___tag_value_codelet_.20-..___tag_value_codelet_.18
+	.2byte 0x080e
+	.byte 0x04
+	.4byte ..___tag_value_codelet_.21-..___tag_value_codelet_.20
+	.8byte 0x8d138c0f8301a00e
+	.4byte 0x8f118e12
+	.2byte 0x0010
+	.byte 0x00
+// -- Begin DWARF2 SEGMENT .debug_str
+	.section .debug_str,"MS",@progbits,1
+.debug_str_seg:
+	.align 1
+	.8byte 0x2f78662f73666e2f
+	.8byte 0x78662f736b736964
+	.8byte 0x69645f656d6f685f
+	.8byte 0x7a616d612f316b73
+	.8byte 0x455041432f7a756f
+	.8byte 0x657262752f524e2f
+	.8byte 0x736b6d62752f6f70
+	.8byte 0x6d62755f6d656d2f
+	.8byte 0x6d6364756c2f736b
+	.8byte 0x735f345f71732d70
+	.8byte 0x78735f316c645f72
+	.2byte 0x0032
+	.8byte 0x2e74656c65646f63
+	.4byte 0x00303966
+	.8byte 0x2952286c65746e49
+	.8byte 0x6e617274726f4620
+	.8byte 0x52286c65746e4920
+	.8byte 0x6d6f432034362029
+	.8byte 0x45582072656c6970
+	.8byte 0x70706120726f6620
+	.8byte 0x6e6f69746163696c
+	.8byte 0x6e696e6e75722073
+	.8byte 0x746e49206e6f2067
+	.8byte 0x3436202952286c65
+	.8byte 0x6f6973726556202c
+	.8byte 0x302e302e3531206e
+	.8byte 0x697542203039302e
+	.8byte 0x303431303220646c
+	.4byte 0x0a333237
+	.byte 0x00
+	.8byte 0x0074656c65646f63
+	.8byte 0x2852454745544e49
+	.2byte 0x2934
+	.byte 0x00
+	.8byte 0x002934284c414552
+// -- Begin DWARF2 SEGMENT .eh_frame
+	.section .eh_frame,"a",@progbits
+.eh_frame_seg:
+	.align 8
+	.4byte 0x00000014
+	.8byte 0x7801000100000000
+	.8byte 0x0000019008070c10
+	.4byte 0x00000000
+	.4byte 0x00000064
+	.4byte 0x0000001c
+	.8byte ..___tag_value_codelet_.2
+	.8byte ..___tag_value_codelet_.29-..___tag_value_codelet_.2
+	.byte 0x04
+	.4byte ..___tag_value_codelet_.4-..___tag_value_codelet_.2
+	.4byte 0x0401a00e
+	.4byte ..___tag_value_codelet_.6-..___tag_value_codelet_.4
+	.8byte 0x118e128d138c0f83
+	.2byte 0x108f
+	.byte 0x04
+	.4byte ..___tag_value_codelet_.14-..___tag_value_codelet_.6
+	.2byte 0x04cc
+	.4byte ..___tag_value_codelet_.15-..___tag_value_codelet_.14
+	.2byte 0x04cd
+	.4byte ..___tag_value_codelet_.16-..___tag_value_codelet_.15
+	.2byte 0x04ce
+	.4byte ..___tag_value_codelet_.17-..___tag_value_codelet_.16
+	.2byte 0x04cf
+	.4byte ..___tag_value_codelet_.18-..___tag_value_codelet_.17
+	.2byte 0x04c3
+	.4byte ..___tag_value_codelet_.20-..___tag_value_codelet_.18
+	.2byte 0x080e
+	.byte 0x04
+	.4byte ..___tag_value_codelet_.21-..___tag_value_codelet_.20
+	.8byte 0x8d138c0f8301a00e
+	.4byte 0x8f118e12
+	.2byte 0x0010
+	.byte 0x00
+	.section .text
+.LNDBG_TXe:
+# End

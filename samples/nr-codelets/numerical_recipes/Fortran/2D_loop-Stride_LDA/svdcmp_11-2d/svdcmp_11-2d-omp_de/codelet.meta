@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2D_loop-Stride_LDA
+code name=svdcmp_11-2d
+codelet name=svdcmp_11-2d-omp_de

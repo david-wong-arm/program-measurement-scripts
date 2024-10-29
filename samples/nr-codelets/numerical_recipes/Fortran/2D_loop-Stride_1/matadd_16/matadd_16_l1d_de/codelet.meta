@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2D_loop-Stride_1
+code name=matadd_16
+codelet name=matadd_16_l1d_de

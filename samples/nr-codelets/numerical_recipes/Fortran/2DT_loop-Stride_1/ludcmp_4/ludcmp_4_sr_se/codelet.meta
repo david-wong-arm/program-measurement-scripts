@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2DT_loop-Stride_1
+code name=ludcmp_4
+codelet name=ludcmp_4_sr_se

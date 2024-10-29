@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_CLDA
+code name=elmhes_11
+codelet name=elmhes_11_sr_sVS_dx2

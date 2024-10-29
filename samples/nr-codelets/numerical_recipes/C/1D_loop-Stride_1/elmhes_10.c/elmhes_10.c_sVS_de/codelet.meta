@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_1
+code name=elmhes10.c
+codelet name=elmhes10.c_de

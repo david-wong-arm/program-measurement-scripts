@@ -1,0 +1,8 @@
+application name=MAQAO_mem_ubmks
+
+batch name=original
+
+code name=MAQAO_stride1_movups_128_2x4
+
+codelet name=MAQAO_stride1_movups_128_2x4
+codelet source_code=Will be replaced with actual source code

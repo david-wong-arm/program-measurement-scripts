@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2D_loop-Stride_1
+code name=hqr-sq_12.c
+codelet name=hqr-sq_12.c_sVS_se

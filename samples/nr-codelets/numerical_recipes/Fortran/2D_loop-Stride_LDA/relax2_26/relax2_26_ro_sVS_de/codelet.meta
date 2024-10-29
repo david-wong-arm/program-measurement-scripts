@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2D_loop-Stride_LDA
+code name=relax2_26
+codelet name=relax2_26_ro_sVS_de

@@ -1,0 +1,53 @@
+180a181,182
+> push %r14
+> movq %r15, %r14
+188c190
+<         vmovupd   (%r10,%r15,8), %ymm2                          #7.31
+---
+>         vmovupd   (%r10,%r14,8), %ymm2                          #7.31
+190c192
+<         vfmadd213pd (%r11,%r15,8), %ymm1, %ymm2                 #7.3
+---
+>         vfmadd213pd (%r11,%r14,8), %ymm1, %ymm2                 #7.3
+192c194
+<         vmovupd   %ymm2, (%r11,%r15,8)                          #7.3
+---
+>         vmovupd   %ymm2, (%r11,%r14,8)                          #7.3
+194c196
+<         vmovupd   32(%r10,%r15,8), %ymm3                        #7.31
+---
+>         vmovupd   32(%r10,%r14,8), %ymm3                        #7.31
+196c198
+<         vfmadd213pd 32(%r11,%r15,8), %ymm1, %ymm3               #7.3
+---
+>         vfmadd213pd 32(%r11,%r14,8), %ymm1, %ymm3               #7.3
+198c200
+<         vmovupd   %ymm3, 32(%r11,%r15,8)                        #7.3
+---
+>         vmovupd   %ymm3, 32(%r11,%r14,8)                        #7.3
+200c202
+<         vmovupd   64(%r10,%r15,8), %ymm4                        #7.31
+---
+>         vmovupd   64(%r10,%r14,8), %ymm4                        #7.31
+202c204
+<         vfmadd213pd 64(%r11,%r15,8), %ymm1, %ymm4               #7.3
+---
+>         vfmadd213pd 64(%r11,%r14,8), %ymm1, %ymm4               #7.3
+204c206
+<         vmovupd   %ymm4, 64(%r11,%r15,8)                        #7.3
+---
+>         vmovupd   %ymm4, 64(%r11,%r14,8)                        #7.3
+206c208
+<         vmovupd   96(%r10,%r15,8), %ymm5                        #7.31
+---
+>         vmovupd   96(%r10,%r14,8), %ymm5                        #7.31
+208c210
+<         vfmadd213pd 96(%r11,%r15,8), %ymm1, %ymm5               #7.3
+---
+>         vfmadd213pd 96(%r11,%r14,8), %ymm1, %ymm5               #7.3
+210c212
+<         vmovupd   %ymm5, 96(%r11,%r15,8)                        #7.3
+---
+>         vmovupd   %ymm5, 96(%r11,%r14,8)                        #7.3
+217a220
+> pop %r14

@@ -1,0 +1,177 @@
+--- codelet.s	2015-09-24 19:01:32.199700000 -0500
++++ codelet.s.manual	2015-09-24 19:00:51.851765000 -0500
+@@ -245,6 +245,8 @@
+         .align    16,0x90
+ ..LN90:
+                                 # LOE rax rcx rbx rbp rsi rdi r8 r9 r10 r12 r13 r14 r15 edx r11b xmm0 xmm1 xmm2 xmm3 xmm4
++	movq	%rbx, spill(%rip)
++	mov	%r15, %rbx
+ ..B1.10:                        # Preds ..B1.10 ..B1.9
+ ..L17:          # optimization report
+                 # LOOP WAS INTERCHANGED
+@@ -271,7 +273,8 @@
+         addsd     16(%r12,%r13), %xmm4                          #14.54
+ ..LN98:
+    .loc    1  7  is_stmt 1
+-        addq      $16, %r12                                     #7.3
++# changed inc from $16 to $0
++        addq      $0, %r12                                     #7.3
+ ..LN99:
+    .loc    1  11  is_stmt 1
+         mulsd     %xmm0, %xmm4                                  #11.31
+@@ -283,7 +286,8 @@
+         movaps    %xmm6, %xmm4                                  #7.3
+ ..LN102:
+    .loc    1  10  is_stmt 1
+-        movsd     %xmm5, 16(%r10,%r15,8)                        #10.9
++# renamed r15->rbx
++        movsd     %xmm5, 16(%r10,%rbx,8)                        #10.9
+ ..LN103:
+    .loc    1  7  is_stmt 1
+         incq      %r15                                          #7.3
+@@ -291,6 +295,7 @@
+         cmpq      %rax, %r15                                    #7.3
+ ..LN105:
+         jb        ..B1.10       # Prob 82%                      #7.3
++	movq	spill(%rip), %rbx
+ ..LN106:
+                                 # LOE rax rcx rbx rbp rsi rdi r8 r9 r10 r12 r13 r14 r15 edx r11b xmm0 xmm1 xmm2 xmm3 xmm4
+ ..B1.11:                        # Preds ..B1.10
+@@ -333,6 +338,8 @@
+         movq      136(%rsp), %r9                                #7.3
+ ..LN122:
+                                 # LOE rax rcx rbx r8 r9 r10 r12 r13 r14 r15 edx r11b xmm0 xmm1 xmm2 xmm3
++	movq	%rbx, spill(%rip)
++	mov	%rax, %rbx
+ ..B1.13:                        # Preds ..B1.13 ..B1.12
+ ..L18:          # optimization report
+                 # LOOP WAS INTERCHANGED
+@@ -402,7 +409,8 @@
+ ..LN147:
+         movups    80(%r13,%r9), %xmm8                           #10.31
+ ..LN148:
+-        movups    %xmm9, 16(%r10,%rax,8)                        #10.9
++# Renamed %rax -> %rbx
++        movups    %xmm9, 16(%r10,%rbx,8)                        #10.9
+ ..LN149:
+         movaps    %xmm8, %xmm9                                  #10.31
+ ..LN150:
+@@ -448,10 +456,12 @@
+ ..LN165:
+         movups    112(%r13,%r9), %xmm14                         #10.31
+ ..LN166:
+-        movups    %xmm15, 32(%r10,%rax,8)                       #10.9
++# Renamed %rax -> %rbx
++        movups    %xmm15, 32(%r10,%rbx,8)                       #10.9
+ ..LN167:
+    .loc    1  7  is_stmt 1
+-        addq      $128, %r13                                    #7.3
++# changed inc $128 -> $0
++        addq      $0, %r13                                    #7.3
+ ..LN168:
+    .loc    1  12  is_stmt 1
+         movsd     80(%rbp), %xmm6                               #12.37
+@@ -497,7 +507,8 @@
+    .loc    1  10  is_stmt 1
+         addpd     %xmm8, %xmm9                                  #10.9
+ ..LN185:
+-        movups    %xmm9, 48(%r10,%rax,8)                        #10.9
++# Renamed %rax -> %rbx
++        movups    %xmm9, 48(%r10,%rbx,8)                        #10.9
+ ..LN186:
+    .loc    1  12  is_stmt 1
+         movsd     112(%rbp), %xmm12                             #12.37
+@@ -537,7 +548,8 @@
+    .loc    1  10  is_stmt 1
+         addpd     %xmm14, %xmm4                                 #10.9
+ ..LN200:
+-        movups    %xmm4, 64(%r10,%rax,8)                        #10.9
++# Renamed %rax -> %rbx
++        movups    %xmm4, 64(%r10,%rbx,8)                        #10.9
+ ..LN201:
+    .loc    1  7  is_stmt 1
+         addq      $8, %rax                                      #7.3
+@@ -545,6 +557,7 @@
+         cmpq      %r8, %rax                                     #7.3
+ ..LN203:
+         jb        ..B1.13       # Prob 82%                      #7.3
++	movq	spill(%rip), %rbx
+ ..LN204:
+                                 # LOE rax rcx rbx r8 r9 r10 r12 r13 r14 r15 edx r11b xmm0 xmm1 xmm2 xmm3
+ ..B1.14:                        # Preds ..B1.13
+@@ -626,6 +639,8 @@
+         .align    16,0x90
+ ..LN237:
+                                 # LOE rcx rbx rbp rdi r8 r9 r11 r12 r14 eax edx r10d r13d r15d xmm0 xmm1 xmm2 xmm3
++	mov	%rbx, spill(%rip)
++	mov	%r13, %rbx
+ ..B1.19:                        # Preds ..B1.19 ..B1.18
+ ..L19:          # optimization report
+                 # LOOP WAS INTERCHANGED
+@@ -637,7 +652,8 @@
+    .loc    1  7  is_stmt 1
+ ..LN239:
+    .loc    1  10  is_stmt 1
+-        lea       (%r10,%r13,2), %esi                           #10.31
++# Renamed r13->rbx
++        lea       (%r10,%rbx,2), %esi                           #10.31
+ ..LN240:
+         movslq    %esi, %rsi                                    #10.31
+ ..LN241:
+@@ -691,11 +707,13 @@
+         movups    %xmm9, 16(%r11)                               #10.9
+ ..LN260:
+    .loc    1  7  is_stmt 1
+-        addq      $16, %r11                                     #7.3
++# Changed inc from $16->$0
++        addq      $0, %r11                                     #7.3
+ ..LN261:
+         cmpl      %r15d, %r13d                                  #7.3
+ ..LN262:
+         jb        ..B1.19       # Prob 82%                      #7.3
++	movq	spill(%rip), %rbx
+ ..LN263:
+                                 # LOE rcx rbx rbp rdi r8 r9 r11 r12 r14 eax edx r10d r13d r15d xmm0 xmm1 xmm2 xmm3
+ ..B1.20:                        # Preds ..B1.19
+@@ -733,6 +751,8 @@
+         .align    16,0x90
+ ..LN278:
+                                 # LOE rcx rbx rsi rdi r8 r9 r10 r11 r12 r13 eax edx ebp r15d xmm0 xmm1 xmm2 xmm3
++	movq	%rbx, spill(%rip)
++	mov	%r15, %rbx
+ ..B1.23:                        # Preds ..B1.23 ..B1.22
+ ..L20:          # optimization report
+                 # LOOP WAS INTERCHANGED
+@@ -741,7 +761,8 @@
+    .loc    1  7  is_stmt 1
+ ..LN280:
+    .loc    1  15  is_stmt 1
+-        lea       (%rdx,%r15,2), %r14d                          #15.37
++# Renamed r15->rbx
++        lea       (%rdx,%rbx,2), %r14d                          #15.37
+ ..LN281:
+    .loc    1  10  is_stmt 1
+         movslq    %r14d, %r14                                   #10.31
+@@ -775,11 +796,13 @@
+         movsd     %xmm5, 16(%r10)                               #10.9
+ ..LN292:
+    .loc    1  7  is_stmt 1
+-        addq      $8, %r10                                      #7.3
++# Changed inc from $8->$0
++        addq      $0, %r10                                      #7.3
+ ..LN293:
+         cmpl      %eax, %r15d                                   #7.3
+ ..LN294:
+         jb        ..B1.23       # Prob 82%                      #7.3
++	movq	spill(%rip), %rbx
+ ..LN295:
+                                 # LOE rcx rbx rsi rdi r8 r9 r10 r11 r12 r13 eax edx ebp r15d xmm0 xmm1 xmm2 xmm3
+ ..B1.25:                        # Preds ..B1.23 ..B1.14 ..B1.29 ..B1.21
+@@ -855,6 +878,7 @@
+ # mark_end;
+ 	.type	codelet_,@function
+ 	.size	codelet_,.-codelet_
++	.comm	spill,8,8
+ ..LNcodelet_.323:
+ .LNcodelet_:
+ 	.data

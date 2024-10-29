@@ -1,0 +1,4 @@
+application name=LinAlg
+batch name=Tests
+code name=I1aM1abc.c
+codelet name=I1aM1abc-extern-assign-unrjam.c_de

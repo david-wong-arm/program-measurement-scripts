@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_1
+code name=tridag_1
+codelet name=tridag_1-d2m_de

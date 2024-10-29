@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=TOMPECS-2017-SW-Chg
+code name=matmul
+codelet name=matmul-block_de

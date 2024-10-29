@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=REPLACE_BATCH
+
+code name=REPLACE_CODE
+
+codelet name=REPLACE_CODELET_NAME
+codelet source_code=Will be replaced with actual source code

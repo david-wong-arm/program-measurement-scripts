@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_1
+code name=toeplz_2
+codelet name=toeplz_2_sr_de

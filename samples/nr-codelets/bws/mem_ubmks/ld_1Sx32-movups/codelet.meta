@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=loads_32
+
+code name=loads_32-movups
+
+codelet name=loads_1Sx32-movups
+codelet source_code=Will be replaced with actual source code

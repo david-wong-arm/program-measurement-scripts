@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=mix_4-4
+
+code name=mix_4-4-movaps
+
+codelet name=mix_3_1Sx4-4-movaps
+codelet source_code=Will be replaced with actual source code
