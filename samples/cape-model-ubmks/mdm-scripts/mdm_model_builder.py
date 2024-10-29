@@ -75,17 +75,28 @@ def plot_data(datasizes, L2_rc_per_its, L3_rc_per_its, ram_rc_per_its, sel_datas
 def plot_filtered_data(datasizes, L2_rc_per_its, L3_rc_per_its, ram_rc_per_its, cond):
     plot_data(datasizes[cond], L2_rc_per_its[cond], L3_rc_per_its[cond], ram_rc_per_its[cond])                       
     
+def runCmdGetRst_safe_pipes(pipeCmds, cwd, env=os.environ.copy()):
+    last_stdin=None
+    for pipeCmd in pipeCmds:
+        result = subprocess.Popen(pipeCmd, cwd=cwd, env=env, text=True, stdin=last_stdin, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        last_stdin = result.stdout
+    output, error = result.communicate()
+    return output.strip(), error.strip()
+
 def do_runs(datasizes):
     print(datasizes)
     with open ('explore_data.txt', 'w') as f: f.write (' '.join(map(str,datasizes)))
-    raw_file=subprocess.check_output(["""./vrun_ancodskx1020_mdm_explore.sh 'Test'|grep 'Cape raw data'| sed 's/.*: //g'"""], shell=True).strip().decode('utf-8')
+    #raw_file=subprocess.check_output(["""./vrun_ancodskx1020_mdm_explore.sh 'Test'|grep 'Cape raw data'| sed 's/.*: //g'"""], shell=True).strip().decode('utf-8')
+    raw_file = runCmdGetRst_safe_pipes([[f'vrun_ancodskx1020_mdm_explore.sh', 'Test'], ['grep', 'Cape raw data'], ['sed', 's/.*: //g']], cwd='.')
+
     with open(RAW_FILES, "a") as myfile: myfile.write(raw_file+"\n")
     return raw_file
 
 def do_modeling_runs_generic(datasizes, script, raw_files):
     print(datasizes)
     with open ('model_data_sizes.txt', 'w') as f: f.write (' '.join(map(str,datasizes)))
-    raw_file=subprocess.check_output(["""./{} 'Test'|grep 'Cape raw data'| sed 's/.*: //g'""".format(script)], shell=True).strip().decode('utf-8')
+    #raw_file=subprocess.check_output(["""./{} 'Test'|grep 'Cape raw data'| sed 's/.*: //g'""".format(script)], shell=True).strip().decode('utf-8')
+    raw_file = runCmdGetRst_safe_pipes([[f'{script}', 'Test'], ['grep', 'Cape raw data'], ['sed', 's/.*: //g']], cwd='.')
     with open(raw_files, "a") as myfile: myfile.write(raw_file+"\n")
     return raw_file
 
