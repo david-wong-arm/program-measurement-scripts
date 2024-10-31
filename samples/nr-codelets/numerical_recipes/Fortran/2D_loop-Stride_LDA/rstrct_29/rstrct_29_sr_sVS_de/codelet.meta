@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2D_loop-Stride_LDA
+code name=rstrct_29
+codelet name=rstrct_29_sr_sVS_de

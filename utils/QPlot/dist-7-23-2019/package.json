@@ -17,7 +17,7 @@
         "style-loader": "^0.21.0",
         "ui-widget-toolkit": "^1.10.1",
         "url-loader": "^1.1.1",
-        "vue": "^2.5.16",
+        "vue": ">=3.0.0-alpha.0",
         "vue-drag-drop": "^1.1.4",
         "vue-loader": "^15.2.4",
         "vue-material": "^1.0.0-beta-10.2",

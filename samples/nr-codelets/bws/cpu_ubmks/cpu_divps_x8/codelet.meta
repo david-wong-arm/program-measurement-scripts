@@ -1,0 +1,9 @@
+application name=bws
+
+batch name=cpu_ubenchs
+
+code name=div
+
+codelet name=cpu_divps_x8
+codelet source_code=Will be replaced with actual source code
+

@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2D_loop-Stride_LDA
+code name=lop_13
+codelet name=lop_13_ro_sVS_de

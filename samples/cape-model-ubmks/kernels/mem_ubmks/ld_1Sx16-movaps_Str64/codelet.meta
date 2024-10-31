@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=loads_16
+
+code name=loads_16-movaps
+
+codelet name=loads_1Sx16-movaps_Str64
+codelet source_code=Will be replaced with actual source code

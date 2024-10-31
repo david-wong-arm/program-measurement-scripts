@@ -1,0 +1,59 @@
+271a272,277
+> push %r10
+> push %r11
+> push %r13
+> mov  %rdi, %r10
+> mov  %r15, %r11
+> mov  %r8,  %r13
+282c288
+<         vpermpd   $27, -144(%rdi,%rbx), %ymm4                   #9.17
+---
+>         vpermpd   $27, -144(%r10,%rbx), %ymm4                   #9.17
+285c291
+<         vpermpd   $27, -128(%rdi,%rdx), %ymm5                   #10.38
+---
+>         vpermpd   $27, -128(%r10,%rdx), %ymm5                   #10.38
+287c293
+<         vpermpd   $27, -96(%rdi,%rdx), %ymm6                    #10.38
+---
+>         vpermpd   $27, -96(%r10,%rdx), %ymm6                    #10.38
+290c296
+<         vpermpd   $27, -112(%rdi,%rbx), %ymm9                   #9.17
+---
+>         vpermpd   $27, -112(%r10,%rbx), %ymm9                   #9.17
+292c298
+<         vpermpd   $27, -80(%rdi,%rbx), %ymm11                   #9.17
+---
+>         vpermpd   $27, -80(%r10,%rbx), %ymm11                   #9.17
+295c301
+<         vpermpd   $27, -64(%rdi,%rdx), %ymm8                    #10.38
+---
+>         vpermpd   $27, -64(%r10,%rdx), %ymm8                    #10.38
+298c304
+<         vpermpd   $27, -48(%rdi,%rbx), %ymm12                   #9.17
+---
+>         vpermpd   $27, -48(%r10,%rbx), %ymm12                   #9.17
+301c307
+<         vpermpd   $27, -32(%r15), %ymm10                        #10.38
+---
+>         vpermpd   $27, -32(%r11), %ymm10                        #10.38
+306c312
+<         vmulpd    64(%r8,%rcx), %ymm9, %ymm3                    #9.5
+---
+>         vmulpd    64(%r13,%rcx), %ymm9, %ymm3                    #9.5
+308c314
+<         vfmadd231pd 96(%r8,%rcx), %ymm4, %ymm0                  #9.5
+---
+>         vfmadd231pd 96(%r13,%rcx), %ymm4, %ymm0                  #9.5
+314c320
+<         vfmadd231pd (%r8,%rcx), %ymm12, %ymm3                   #9.5
+---
+>         vfmadd231pd (%r13,%rcx), %ymm12, %ymm3                   #9.5
+316c322
+<         vfmadd231pd 32(%r8,%rcx), %ymm11, %ymm0                 #9.5
+---
+>         vfmadd231pd 32(%r13,%rcx), %ymm11, %ymm0                 #9.5
+340a347,349
+> pop %r13
+> pop %r11
+> pop %r10

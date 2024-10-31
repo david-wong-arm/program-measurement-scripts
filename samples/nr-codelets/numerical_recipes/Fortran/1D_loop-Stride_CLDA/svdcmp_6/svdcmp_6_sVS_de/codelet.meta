@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_CLDA
+code name=svdcmp_6
+codelet name=svdcmp_6_sVS_de

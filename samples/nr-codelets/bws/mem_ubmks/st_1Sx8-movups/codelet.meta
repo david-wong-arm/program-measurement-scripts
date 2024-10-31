@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=stores_8
+
+code name=stores_8-movups
+
+codelet name=stores_1Sx8-movups
+codelet source_code=Will be replaced with actual source code

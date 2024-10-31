@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=stores_8
+
+code name=stores_8-vmovaps
+
+codelet name=stores_1Sx8-vmovaps
+codelet source_code=Will be replaced with actual source code

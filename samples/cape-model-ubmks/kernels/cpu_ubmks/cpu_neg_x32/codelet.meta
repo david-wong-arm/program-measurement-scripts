@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=cpu_ubenchs
+
+code name=neg
+
+codelet name=cpu_neg_x32
+codelet source_code=Will be replaced with actual source code

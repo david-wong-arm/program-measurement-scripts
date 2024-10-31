@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=2DT_loop-Stride_1
+code name=jacobi_5.c
+codelet name=jacobi_5.c_se

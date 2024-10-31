@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_1
+code name=svdcmp_13
+codelet name=svdcmp_13_sr_sVS_de

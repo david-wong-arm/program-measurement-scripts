@@ -1,0 +1,4 @@
+application name=LinAlg
+batch name=Tests
+code name=S1aa.c
+codelet name=S1aa-extern-assign-200.c_de

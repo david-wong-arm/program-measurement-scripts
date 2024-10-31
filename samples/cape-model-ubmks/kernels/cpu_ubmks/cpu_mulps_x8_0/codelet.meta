@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=cpu_ubenchs
+
+code name=mul
+
+codelet name=cpu_mulps_x8_0
+codelet source_code=Will be replaced with actual source code

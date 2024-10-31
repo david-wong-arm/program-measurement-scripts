@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=loads_4
+
+code name=loads_4-vmovaps
+
+codelet name=loads_4Sx4-vmovaps
+codelet source_code=Will be replaced with actual source code

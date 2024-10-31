@@ -1,0 +1,4 @@
+application name=NRs_CAPE
+batch name=1D_loop-Stride_1
+code name=four1_2
+codelet name=four1_2_ro_me

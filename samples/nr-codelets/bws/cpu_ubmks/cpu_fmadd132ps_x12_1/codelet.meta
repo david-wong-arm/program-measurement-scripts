@@ -1,0 +1,8 @@
+application name=bws
+
+batch name=cpu_ubenchs
+
+code name=fmadd132
+
+codelet name=cpu_fmaadd132ps_x12_1
+codelet source_code=Will be replaced with actual source code

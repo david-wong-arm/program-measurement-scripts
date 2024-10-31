@@ -1,0 +1,4 @@
+application name=LinAlg
+batch name=01_Ops_03_Arrays
+code name=MLabc.f
+codelet name=MLabc.f_de

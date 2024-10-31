@@ -1,0 +1,7 @@
+.venv
+linear_algebra/src/*/*/*/*/cls_*/**/**
+linear_algebra/src/*/*/*/*/time.out
+linear_algebra/src/*/*/*/*/cls.log
+numerical_recipes/Fortran/TOMPECS-2017-SW-Chg/*/*/cls_res_*/**/**
+numerical_recipes/Fortran/TOMPECS-2017-SW-Chg/*/*/cls.log
+codeletProbe/libmeasure.a
