@@ -273,6 +273,8 @@ def calculate_gflops(in_row, iters_per_rep, time_per_rep):
             4 * getter(in_row, 'FP_ARITH_INST_RETIRED_256B_PACKED_DOUBLE') + \
             8 * getter(in_row, 'FP_ARITH_INST_RETIRED_512B_PACKED_SINGLE') + \
             8 * getter(in_row, 'FP_ARITH_INST_RETIRED_512B_PACKED_DOUBLE'))) / getter(in_row, 'decan_experimental_configuration.num_core')
+    else:
+        counter_flops = None
 
     flops = 0.5 * getter(in_row, 'Nb_insn_ADD/SUBSS') + \
             2 * getter(in_row, 'Nb_insn_ADD/SUBPS_XMM') + \
@@ -335,7 +337,8 @@ def calculate_gflops(in_row, iters_per_rep, time_per_rep):
     except:
         pass
     flops=(flops * getter(in_row, 'decan_experimental_configuration.num_core') * iters_per_rep) / (1E9 * time_per_rep)
-    counter_flops=(counter_flops * getter(in_row, 'decan_experimental_configuration.num_core') * iters_per_rep) / (1E9 * time_per_rep)
+    if counter_flops:
+        counter_flops=(counter_flops * getter(in_row, 'decan_experimental_configuration.num_core') * iters_per_rep) / (1E9 * time_per_rep)
     return (flops, counter_flops)
 
 def calculate_iterations_per_rep(in_row):
