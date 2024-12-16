@@ -20,6 +20,26 @@
 #include <sim_api.h>
 #endif
 
+// Define rdtscll for arm arch
+#ifdef __aarch64__
+    //#define rdtscll(val) do { \
+    //    unsigned long long __a; \
+    //    asm volatile("mrs %0, PMCCNTR_EL0" : "=r" (__a)); \
+    //    (val) = __a; \
+    //} while(0)
+    #define rdtscll(val) do { \
+        unsigned int __a; \
+        asm volatile("mrc p15, 0, %0, c9, c13, 0" : "=r" (__a)); \
+        (val) = (unsigned long long)__a; \
+    } while(0)
+#elif defined(__arm__)
+    #define rdtscll(val) do { \
+        unsigned int __a; \
+        asm volatile("mrc p15, 0, %0, c9, c13, 0" : "=r" (__a)); \
+        (val) = (unsigned long long)__a; \
+    } while(0)
+#endif
+
 
 // Define rdtscll for x86_64 arch
 #ifdef __x86_64__
