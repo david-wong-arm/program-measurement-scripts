@@ -6,6 +6,7 @@
 #include "util.h"
 
 #define LINE_SIZE 64
+#define NUM_STREAMS 1
 
 unsigned long long scale_ (unsigned long long, struct item*, unsigned int); // Using David Wong's 'in codelet' repetitions
 
@@ -17,14 +18,14 @@ int main (int argc, char** argv)
 {
 	unsigned int align = 64;
 	unsigned long long int before, after;
-	unsigned long long nb_elements, repetitions, inner_rep;
+	unsigned long long nb_elements, repetitions, inner_rep, nb_elements_per_list;
         int shuffle;
 
 	char* mem;
 	char* alignedMem;
 	float* tab;
 
-	unsigned int nb_iters;
+	unsigned long long nb_iters;
 
 	int i;
 	int n;
@@ -38,11 +39,12 @@ int main (int argc, char** argv)
 
 	printf ("Nb elements: %llu.\n", nb_elements);
 	printf ("Nb repetitions: %llu.\n", repetitions);
+	printf ("shuffle: %u.\n", shuffle);
 
 
-        int streamSize = sizeof(struct item) * nb_elements;
-	int alignedSize = alignUp(streamSize, align);
-	printf ("AlignedSize: %d.\n", alignedSize);
+        unsigned long long streamSize = sizeof(struct item) * nb_elements;
+	unsigned long long alignedSize = alignUp(streamSize, align);
+	printf ("AlignedSize: %llu.\n", alignedSize);
 
 	//mem = malloc (sizeof (float) * (nb_elements*5) + 4096);
 	mem = malloc (alignedSize + align);  // added extra align bytes for possible adjustment
@@ -52,7 +54,9 @@ int main (int argc, char** argv)
 		printf ("Could not allocate the main array.\n");
 		return -1;
 	}
-	alignedMem = (char*) alignUp((unsigned long long)mem, align);
+	nb_elements_per_list = nb_elements/NUM_STREAMS;
+	alignedMem = makeList(mem, align, alignedSize, nb_elements_per_list, shuffle);
+	//alignedMem = (char*) alignUp((unsigned long long)mem, align);
 
 	//tab = (float*)(mem - (unsigned long long) mem % 32);
 	//tab = tab + 8;  // 8 SP = 32 bytes
@@ -110,11 +114,11 @@ int main (int argc, char** argv)
 	cnt = (struct item*)alignedMem;
 	// printf("last data = %d\n", cnt[n-1].data);
 
-	printf ("Nb iters0: %u.\n", nb_iters);
+	printf ("Nb iters0: %llu.\n", nb_iters);
 	nb_iters /= repetitions;
-	printf ("Nb iters1: %u.\n", nb_iters);
+	printf ("Nb iters1: %llu.\n", nb_iters);
 	nb_iters = nb_elements / 8;
-	printf ("Nb iters: %u.\n", nb_iters);
+	printf ("Nb iters: %llu.\n", nb_iters);
 	//printf ("RDTSC: %lf.\n", ((double)(after - before)) / (double)repetitions / (double)nb_iters );
 
 	free (mem);
