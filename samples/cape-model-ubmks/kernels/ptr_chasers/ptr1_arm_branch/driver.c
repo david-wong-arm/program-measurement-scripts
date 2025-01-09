@@ -115,7 +115,7 @@ int main (int argc, char** argv)
 	printf ("Nb iters1: %u.\n", nb_iters);
 	nb_iters = nb_elements / 8;
 	printf ("Nb iters: %u.\n", nb_iters);
-	printf ("RDTSC: %lf.\n", ((double)(after - before)) / (double)repetitions / (double)nb_iters );
+	//printf ("RDTSC: %lf.\n", ((double)(after - before)) / (double)repetitions / (double)nb_iters );
 
 	free (mem);
 
